@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from "next/link";
-import {slugify} from '../../../../utils';
+import {slugify, titleFormat} from '../../../../utils';
 
 const PostMetaOne = ({metaData}) => {
 
@@ -28,7 +28,7 @@ const PostMetaOne = ({metaData}) => {
                         <Link href={`/category/${slugify(metaData.cate)}`}>
                             <a className="hover-flip-item-wrapper">
                                 <span className="hover-flip-item">
-                                <span data-text={metaData.cate}>{metaData.cate}</span>
+                                <span data-text={titleFormat(metaData.cate)}>{titleFormat(metaData.cate)}</span>
                                 </span>
                             </a>
                         </Link>

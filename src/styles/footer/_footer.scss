@@ -115,12 +115,15 @@
                 li {
                     margin-top: 5px;
                     margin-bottom: 5px;
-                    a {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                a {
                         color: #000000;
                         font-size: 16px;
                         line-height: 30px;
                         transition: 0.3s;
-                        &:hover {
+                            &:hover {
                             color: var(--color-primary) !important;
                         }
                     }

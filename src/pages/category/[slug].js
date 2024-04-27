@@ -6,17 +6,18 @@ import FooterOne from '../../common/elements/footer/FooterOne';
 import HeadTitle from "../../common/elements/head/HeadTitle";
 import HeaderOne from '../../common/elements/header/HeaderOne';
 import SidebarOne from "../../common/components/sidebar/SidebarOne";
-import { slugify } from '../../common/utils';
+import { slugify, titleFormat } from '../../common/utils';
 import axios from 'axios';
 
 
 const PostCategory = ({ postData, allPosts }) => {
-	
+	const { cate, cate_image, cate_description, } = postData[0]
+	// console.log(cate_image)
 	return (
 		<>
 		<HeadTitle pageTitle="Category Archive"/>
-		<HeaderOne postData={allPosts} />
-		<BreadcrumbOne title={postData[0].cate} />
+		{/* <HeaderOne postData={allPosts} /> */}
+		<BreadcrumbOne title={titleFormat(cate)} image={cate_image} description={cate_description} />
 		<div className="axil-post-list-area axil-section-gap bg-color-white">
 			<div className="container">
 				<div className="row">
@@ -29,8 +30,8 @@ const PostCategory = ({ postData, allPosts }) => {
 				</div>
 			</div>
 		</div>
-		<InstagramOne parentClass="bg-color-grey" />
-		<FooterOne />
+		{/* <InstagramOne parentClass="bg-color-grey" /> */}
+		{/* <FooterOne allPosts={allPosts} /> */}
 
 		</>
 	);

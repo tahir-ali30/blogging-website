@@ -1,60 +1,62 @@
-import { useState } from 'react';
-import Link from 'next/link'
+import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { slugify } from "../../utils";
 
 const filters = [
-    {
-      id: 1,
-      cate: "Design",
-    },
-    {
-      id: 2,
-      cate: "Travel",
-    },
-    {
-      id: 3,
-      cate: "SEO",
-    },
-    {
-      id: 4,
-      cate: "Research",
-    },
-  ];
+	{
+		id: 1,
+		cate: "Design",
+	},
+	{
+		id: 2,
+		cate: "Travel",
+	},
+	{
+		id: 3,
+		cate: "SEO",
+	},
+	{
+		id: 4,
+		cate: "Research",
+	},
+];
 
 const defaultActiveCat = slugify(filters[0].cate);
 
-const Nav = ({posts}) => {
+const Nav = ({ posts }) => {
+	// const defaultData = posts.filter(
+	// 	(post) => slugify(post.cate) === defaultActiveCat
+	// );
 
-    const defaultData = posts.filter(
-        (post) => slugify(post.cate) === defaultActiveCat
-      );
-    
-      const [activeNav, setActiveNav] = useState(defaultActiveCat);
-      const [tabPostData, setTabPostData] = useState(defaultData);
-    
-      const handleChange = (e) => {
-        let filterText = slugify(e.target.textContent);
-        setActiveNav(filterText);
-        
-        let tempData = [];
-    
-        for (let i = 0; i < posts.length; i++) {
-          const element = posts[i];
-          let categories = element["cate"];
-    
-          if (slugify(categories).includes(filterText)) {
-            tempData.push(element);
-          }
-        }
-    
-        setTabPostData(tempData);
-      };
-    
-    return (
-        <ul className="mainmenu">
-            <li className="menu-item-has-children"><a href="#">Home</a>
-                <ul className="axil-submenu">
+	// const [activeNav, setActiveNav] = useState(defaultActiveCat);
+	// const [tabPostData, setTabPostData] = useState(defaultData);
+
+	// const handleChange = (e) => {
+	// 	let filterText = slugify(e.target.textContent);
+	// 	setActiveNav(filterText);
+
+	// 	let tempData = [];
+
+	// 	for (let i = 0; i < posts.length; i++) {
+	// 		const element = posts[i];
+	// 		let categories = element["cate"];
+
+	// 		if (slugify(categories).includes(filterText)) {
+	// 			tempData.push(element);
+	// 		}
+	// 	}
+
+	// 	setTabPostData(tempData);
+	// };
+
+	return (
+		<ul className='mainmenu'>
+            <li className='menu-item-has-children'>
+                <Link href='/'>
+                    <a>Home</a>
+                </Link>
+				{/* <ul className="axil-submenu">
                     <li>
                         <Link href="/">
                             <a className="hover-flip-item-wrapper">
@@ -107,9 +109,9 @@ const Nav = ({posts}) => {
                             </span>
                         </a>
                     </li>
-                </ul>
-            </li>
-            <li className="menu-item-has-children">
+                </ul> */}
+			</li>
+			{/* <li className="menu-item-has-children">
                 <Link href="/">
                     <a>Posts</a>
                 </Link>
@@ -160,14 +162,14 @@ const Nav = ({posts}) => {
                         </Link>
                     </li>
                 </ul>
-            </li>
-            <li className="menu-item-has-children megamenu-wrapper">
+            </li> */}
+			{/* <li className="menu-item-has-children megamenu-wrapper">
                 <Link href="#">
                     <a>Mega Menu</a>
                 </Link>
                 <ul className="megamenu-sub-menu">
                     <li className="megamenu-item">
-                        {/* Start Verticle Nav  */}
+                        Start Verticle Nav 
                         <div className="axil-vertical-nav">
                             <ul className="vertical-nav-menu">
                                 {filters.map((data) => (
@@ -181,10 +183,10 @@ const Nav = ({posts}) => {
                                 ))}
                             </ul>
                         </div>
-                        {/* Start Verticle Nav  */}
-                        {/* Start Verticle Menu  */}
+                        Start Verticle Nav 
+                        Start Verticle Menu 
                         <div className="axil-vertical-nav-content">
-                            {/* Start One Item  */}
+                            Start One Item 
                             <div className="axil-vertical-inner tab-content">
                                 <div className="axil-vertical-single">
                                     <div className="row">
@@ -230,17 +232,36 @@ const Nav = ({posts}) => {
                                     </div>
                                 </div>
                             </div>
-                            {/* End One Item  */}
+                            End One Item 
                         </div>
-                        {/* End Verticle Menu  */}
+                        End Verticle Menu 
                     </li>
                 </ul>
-            </li>
-            <li className="menu-item-has-children">
-                <Link href="/">
-                    <a>Pages</a>
-                </Link>
-                <ul className="axil-submenu">
+            </li> */}
+			{/* <li className='menu-item-has-children'>
+				<Link href='/'>
+					<a>Pages</a>
+				</Link>
+			</li> */}
+			<li>
+				<Link href='/about'>
+					<a className='hover-flip-item-wrapper'>
+						<span className='hover-flip-item'>
+							<span data-text='About Us'>About Us</span>
+						</span>
+					</a>
+				</Link>
+			</li>
+			<li>
+				<Link href='/contact'>
+					<a className='hover-flip-item-wrapper'>
+						<span className='hover-flip-item'>
+							<span data-text='Contact Us'>Contact Us</span>
+						</span>
+					</a>
+				</Link>
+			</li>
+			{/* <ul className="axil-submenu">
                     <li>
                         <Link href="/post-list">
                             <a className="hover-flip-item-wrapper">
@@ -313,9 +334,9 @@ const Nav = ({posts}) => {
                             </a>
                         </Link>
                     </li>
-                </ul>
-            </li>
-            <li>
+                </ul> */}
+			{/* </li> */}
+			{/* <li>
                 <Link href="/lifestyle-blog">
                     <a>Lifestyle</a>
                 </Link>
@@ -324,9 +345,9 @@ const Nav = ({posts}) => {
                 <Link href="/tech-blog">
                     <a>Gadgets</a>
                 </Link>
-            </li>
-        </ul>
-    );
-}
+            </li> */}
+		</ul>
+	);
+};
 
 export default Nav;

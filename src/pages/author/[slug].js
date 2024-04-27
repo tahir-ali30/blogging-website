@@ -12,12 +12,11 @@ import axios from "axios";
 
 
 const AuthorArchive = ({ authorData, allPosts }) => {
-    console.log(authorData)
   
     return (
         <>
         <HeadTitle pageTitle="Author Archive" />
-            <HeaderOne postData={allPosts} />
+            {/* <HeaderOne postData={allPosts} /> */}
             <div className="axil-author-area axil-author-banner bg-color-grey">
                 <div className="container">
                     <div className="row">
@@ -76,7 +75,7 @@ const AuthorArchive = ({ authorData, allPosts }) => {
                 </div>
             </div>
             <InstagramOne parentClass="bg-color-grey" />
-            <FooterOne />
+            {/* <FooterOne allPosts={allPosts} /> */}
         </>
     );
 }

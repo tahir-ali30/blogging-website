@@ -1,181 +1,51 @@
+import axios from 'axios';
 import Image from 'next/image';
 import Link from "next/link";
+import { useEffect, useState } from 'react';
+import { titleFormat } from '../../utils';
 
 const FooterOne = () => {
+  const [categories, setCategories] = useState([]);
+  const [allPosts, setAllPosts] = useState([]);
   if (typeof window !== "undefined") {
     var colorMode = window.localStorage.getItem('color-mode');
   }
 
+  useEffect(() => {
+    axios.get('http://localhost:3005/api/v1/category').then(res => setCategories((res.data.data).slice(0, 5)));
+    axios.get('http://localhost:3005/api/v1/blogs?status=Published').then(res => setAllPosts(res.data.data))
+  },[])
+
+  function renderBlogs(category) {
+    const blogs = (allPosts.filter(post => post.cate === category)).slice(0,7);
+    return (
+      <>
+        <div className="inner">
+          <ul className="ft-menu-list">
+            {blogs.map(blog => (
+              <li>
+                <Link href={blog.slug} className='truncate'>{blog.title}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </>
+    )
+  }
+  
   return (
     <div className="axil-footer-area axil-footer-style-1 footer-variation-2">
       <div className="footer-mainmenu">
         <div className="container">
           <div className="row">
-            <div className="col-lg-2 col-md-6 col-sm-6 col-12">
-              <div className="footer-widget">
-                <h2 className="title">World</h2>
-                <div className="inner">
-                  <ul className="ft-menu-list">
-                    <li>
-                      <a href="#">U.N.</a>
-                    </li>
-                    <li>
-                      <a href="#">Conflicts</a>
-                    </li>
-                    <li>
-                      <a href="#">Terrorism</a>
-                    </li>
-                    <li>
-                      <a href="#">Disasters</a>
-                    </li>
-                    <li>
-                      <a href="#">Global Economy</a>
-                    </li>
-                    <li>
-                      <a href="#">Environment</a>
-                    </li>
-                    <li>
-                      <a href="#">Religion</a>
-                    </li>
-                    <li>
-                      <a href="#">Scandals</a>
-                    </li>
-                  </ul>
+            {categories?.map(({ name }) => (
+              <div className="col-lg-2 col-md-6 col-sm-6 col-12">
+                <div className="footer-widget">
+                  <h2 className="title">{titleFormat(name)}</h2>
+                  {renderBlogs(name)}
                 </div>
               </div>
-            </div>
-            <div className="col-lg-2 col-md-6 col-sm-6 col-12">
-              <div className="footer-widget">
-                <h2 className="title">Politics</h2>
-                <div className="inner">
-                  <ul className="ft-menu-list">
-                    <li>
-                      <a href="#">Executive</a>
-                    </li>
-                    <li>
-                      <a href="#">Senate</a>
-                    </li>
-                    <li>
-                      <a href="#">House</a>
-                    </li>
-                    <li>
-                      <a href="#">Judiciary</a>
-                    </li>
-                    <li>
-                      <a href="#">Global Economy</a>
-                    </li>
-                    <li>
-                      <a href="#">Foreign policy</a>
-                    </li>
-                    <li>
-                      <a href="#">Polls</a>
-                    </li>
-                    <li>
-                      <a href="#">Elections</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-2 col-md-6 col-sm-6 col-12">
-              <div className="footer-widget">
-                <h2 className="title">Entertainment</h2>
-                <div className="inner">
-                  <ul className="ft-menu-list">
-                    <li>
-                      <a href="#">Celebrity News</a>
-                    </li>
-                    <li>
-                      <a href="#">Movies</a>
-                    </li>
-                    <li>
-                      <a href="#">TV News</a>
-                    </li>
-                    <li>
-                      <a href="#">Disasters</a>
-                    </li>
-                    <li>
-                      <a href="#">Music News</a>
-                    </li>
-                    <li>
-                      <a href="#">Environment</a>
-                    </li>
-                    <li>
-                      <a href="#">Style News</a>
-                    </li>
-                    <li>
-                      <a href="#">Entertainment Video</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-2 col-md-6 col-sm-6 col-12">
-              <div className="footer-widget">
-                <h2 className="title">Business</h2>
-                <div className="inner">
-                  <ul className="ft-menu-list">
-                    <li>
-                      <a href="#">Environment</a>
-                    </li>
-                    <li>
-                      <a href="#">Conflicts</a>
-                    </li>
-                    <li>
-                      <a href="#">Terrorism</a>
-                    </li>
-                    <li>
-                      <a href="#">Disasters</a>
-                    </li>
-                    <li>
-                      <a href="#">Global Economy</a>
-                    </li>
-                    <li>
-                      <a href="#">Environment</a>
-                    </li>
-                    <li>
-                      <a href="#">Religion</a>
-                    </li>
-                    <li>
-                      <a href="#">Scandals</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-2 col-md-6 col-sm-6 col-12">
-              <div className="footer-widget">
-                <h2 className="title">Health</h2>
-                <div className="inner">
-                  <ul className="ft-menu-list">
-                    <li>
-                      <a href="#">Movies</a>
-                    </li>
-                    <li>
-                      <a href="#">Conflicts</a>
-                    </li>
-                    <li>
-                      <a href="#">Terrorism</a>
-                    </li>
-                    <li>
-                      <a href="#">Disasters</a>
-                    </li>
-                    <li>
-                      <a href="#">Global Economy</a>
-                    </li>
-                    <li>
-                      <a href="#">Environment</a>
-                    </li>
-                    <li>
-                      <a href="#">Religion</a>
-                    </li>
-                    <li>
-                      <a href="#">Scandals</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            ))}
             <div className="col-lg-2 col-md-6 col-sm-6 col-12">
               <div className="footer-widget">
                 <h2 className="title">About</h2>

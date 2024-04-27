@@ -21,7 +21,7 @@ const SidebarTwo = ({ dataPost, tagData }) => {
         width={390}
       />
       <WidgetSocialShare />
-      <WidgetInstagramPost />
+      {/* <WidgetInstagramPost /> */}
       <WidgetTags postTag={tagData}/>
       <WidgetAd
         url="https://example.com/"

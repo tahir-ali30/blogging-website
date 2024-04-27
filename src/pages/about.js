@@ -13,7 +13,7 @@ const AboutUs = ({allPosts}) => {
     return (
         <>
         <HeadTitle pageTitle="About Us" />
-            <HeaderOne postData={allPosts} />
+            {/* <HeaderOne postData={allPosts} /> */}
             <BreadcrumbTwo
                 title="About Us"
                 paragraph="Wherever &amp; whenever you need us. We are here for you – contact us for all your support needs. <br />
@@ -53,8 +53,8 @@ const AboutUs = ({allPosts}) => {
                 </div>
             </div>
 
-            <InstagramOne parentClass="bg-color-grey" />
-            <FooterThree />
+            {/* <InstagramOne parentClass="bg-color-grey" /> */}
+            {/* <FooterThree /> */}
         </>
     );
 }

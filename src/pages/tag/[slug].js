@@ -17,7 +17,7 @@ const TagsArchive = ({ tagsData, allPosts }) => {
 
     return (
         <>
-            <HeaderOne postData={allPosts}/>
+            {/* <HeaderOne postData={allPosts}/> */}
             <BreadcrumbOne title={BreadCrumbTitle.replace('-', ' ')} />
             <div className="axil-post-list-area axil-section-gap bg-color-white">
                 <div className="container">
@@ -32,7 +32,7 @@ const TagsArchive = ({ tagsData, allPosts }) => {
                 </div>
             </div>
             <InstagramOne parentClass="bg-color-grey" />
-            <FooterOne />
+            {/* <FooterOne allPosts={allPosts} /> */}
         </>
     );
 }

@@ -11,7 +11,7 @@ const SidebarOne = ({dataPost}) => {
       <WidgetSearch />
       <WidgetPostList postData={dataPost}/>
       <WidgetSocialShare />
-      <WidgetInstagramPost />
+      {/* <WidgetInstagramPost /> */}
     </div>
   );
 };

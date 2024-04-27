@@ -21,7 +21,7 @@ const HomeDefault = ({allPosts}) => {
   return ( 
     <>
       <HeadTitle pageTitle="Home Default" />
-      <HeaderOne postData={allPosts}/>
+      {/* <HeaderOne postData={allPosts}/> */}
       <SliderOne postData={allPosts} />
       <PostSectionOne postData={allPosts}/>
       <PostSectionTwo postData={allPosts} adBanner={true} />
@@ -31,8 +31,8 @@ const HomeDefault = ({allPosts}) => {
       <PostSectionFive postData={allPosts}/>
       <PostSectionFour postData={allPosts} adBanner={true} />
       {/* <PostSectionThree postData={videoPost} heading="Featured Video"/> */}
-      <InstagramOne parentClass="bg-color-grey"/>
-      <FooterOne />
+      {/* <InstagramOne parentClass="bg-color-grey"/> */}
+      {/* <FooterOne allPosts={allPosts} /> */}
 
     </>
    );

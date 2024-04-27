@@ -4,7 +4,7 @@ const nextConfig = {
   basePath: process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_BASEPATH : "",
   images: {
     // path: process.env.NEXT_PUBLIC_URL,
-    domains: ['res.cloudinary.com'],
+    domains: ['res.cloudinary.com', 'localhost'],
   },
 }
 

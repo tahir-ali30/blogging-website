@@ -31,11 +31,11 @@ const PostDetails = ({ post, allPosts }) => {
 	
 	return (
 		<>
-			<HeaderOne postData={allPosts} pClass="header-light header-sticky header-with-shadow"/>
+			{/* <HeaderOne postData={allPosts} pClass="header-light header-sticky header-with-shadow"/> */}
 			<HeadTitle pageTitle={post.title} />
 			<PostFormatHandler />
-			<InstagramOne parentClass="bg-color-extra03"/>
-			<FooterOne />
+			{/* <InstagramOne parentClass="bg-color-extra03"/> */}
+			{/* <FooterOne allPosts={allPosts} /> */}
 		</>
 	);
 }

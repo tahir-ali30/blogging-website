@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { titleFormat } from "../../utils";
 
 const SectionTitleOne = ({ title }) => {
   return (
     <div className="row">
       <div className="col-lg-12">
         <div className="section-title">
-          <h2 className="title">{title}</h2>
+          <h2 className="title">{titleFormat(title)}</h2>
         </div>
       </div>
     </div>
@@ -17,7 +18,7 @@ const SectionTitleTwo = ({title, btnText, btnUrl}) => {
     <div className="row align-items-center mb--30">
       <div className="col-lg-6 col-md-8 col-sm-8 col-12">
         <div className="section-title">
-          <h2 className="title">{title}</h2>
+          <h2 className="title">{titleFormat(title)}</h2>
         </div>
       </div>
       <div className="col-lg-6 col-md-4 col-sm-4 col-12">

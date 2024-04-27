@@ -57,4 +57,7 @@ const HoverActiveClass = function(hoverRef) {
 	});
 }
 
-export {slugify, removeDuplicates, SortingByDate, HoverActiveClass};
+// ** Capitalize the first letter of a word
+const titleFormat = word => word[0].toUpperCase() + word.slice(1)
+
+export { slugify, removeDuplicates, SortingByDate, HoverActiveClass, titleFormat };

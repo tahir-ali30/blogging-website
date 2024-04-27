@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Slider from "react-slick";
-import { slugify } from "../../utils";
+import { slugify, titleFormat } from "../../utils";
 
 const SliderOne = ({ postData }) => {
 
@@ -77,7 +77,7 @@ const SliderOne = ({ postData }) => {
                             <Link href={`/category/${slugify(data.cate)}`}>
                                 <a className="hover-flip-item-wrapper">
                                     <span className="hover-flip-item">
-                                        <span data-text={data.cate}>{data.cate}</span>
+                                        <span data-text={titleFormat(data.cate)}>{titleFormat(data.cate)}</span>
                                     </span>
                                 </a>
                             </Link>

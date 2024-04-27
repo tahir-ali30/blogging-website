@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { slugify } from "../../../utils";
+import { slugify, titleFormat } from "../../../utils";
 const PostLayoutTwo = ({ dataPost, postStart, show, bgColor }) => { 
   return (
     <>
@@ -36,7 +36,7 @@ const PostLayoutTwo = ({ dataPost, postStart, show, bgColor }) => {
                 <Link href={`/category/${slugify(data.cate)}`}>
                   <a className="hover-flip-item-wrapper">
                     <span className="hover-flip-item">
-                      <span data-text={data.cate}>{data.cate}</span>
+                      <span data-text={data.cate}>{titleFormat(data.cate)}</span>
                     </span>
                   </a>
                 </Link>
