@@ -29,7 +29,7 @@ const HomeDefault = ({ allPosts, categories }) => {
       <PostSectionSix postData={allPosts} filters={categories} />
       <SocialOne />
       {/* <PostSectionFive postData={allPosts} filters={categories}/> */}
-      <PostSectionFour postData={allPosts} adBanner={true} />
+      <PostSectionFour postData={allPosts} adBanner={false} />
       {/* <PostSectionThree postData={videoPost} heading="Featured Video"/> */}
       {/* <InstagramOne parentClass="bg-color-grey"/> */}
       {/* <FooterOne allPosts={allPosts} /> */}

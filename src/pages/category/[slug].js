@@ -11,13 +11,13 @@ import axios from 'axios';
 
 
 const PostCategory = ({ postData, allPosts }) => {
-	const { cate, cate_image, cate_description, } = postData[0]
-	// console.log(cate_image)
+	const { cate, cate_img, cate_description, } = postData[0]
+	// console.log(postData[0])
 	return (
 		<>
 		<HeadTitle pageTitle="Category Archive"/>
 		{/* <HeaderOne postData={allPosts} /> */}
-		<BreadcrumbOne title={titleFormat(cate)} image={cate_image} description={cate_description} />
+		<BreadcrumbOne title={titleFormat(cate)} image={cate_img} description={cate_description} />
 		<div className="axil-post-list-area axil-section-gap bg-color-white">
 			<div className="container">
 				<div className="row">

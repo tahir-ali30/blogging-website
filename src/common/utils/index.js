@@ -38,13 +38,13 @@ const SortingByDate = function(posts) {
 })
 }
 
-const HoverActiveClass = function(hoverRef) {
+const HoverActiveClass = function(hoverRef, activeNav) {
 	const [refLists, setrefLists] = useState([]);
 	
 	useEffect(() => {
-		const refContainer = hoverRef.current.childNodes;
+    const refContainer = hoverRef.current.childNodes;
 		setrefLists(refContainer);
-	}, []);
+	}, [activeNav]);
 
 	refLists.forEach((f) => {
 		f.addEventListener("mouseenter", function () {

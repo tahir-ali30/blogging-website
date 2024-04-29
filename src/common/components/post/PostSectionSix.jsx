@@ -54,7 +54,7 @@ const PostSectionSix = ({ postData, filters }) => {
   };
 
   const hoverRef = useRef();
-  HoverActiveClass(hoverRef);
+  HoverActiveClass(hoverRef, activeNav);
 
   return (
     <div className="axil-trending-post-area axil-section-gap bg-color-white">
@@ -81,7 +81,7 @@ const PostSectionSix = ({ postData, filters }) => {
                   className="row trend-tab-content"
                   eventKey={activeNav} 
                 >
-                  <div className="col-lg-8">
+                  {tabPostData.length > 0 ? <div className="col-lg-8">
 					<div className="row" ref={hoverRef}>
                     {tabPostData.slice(0, 4).map((data, index) => (
 						<div className="col-12" key={data.slug}>
@@ -157,8 +157,8 @@ const PostSectionSix = ({ postData, filters }) => {
 							</div>
 						</div>
                     ))}
-                  </div>
-				  </div>
+                  </div> 
+				  </div>: null}
                 </Tab.Pane>
               </Tab.Content>
             </Tab.Container>

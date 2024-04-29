@@ -36,7 +36,7 @@ const PostLayoutTwo = ({ dataPost, postStart, show, bgColor }) => {
                 <Link href={`/category/${slugify(data.cate)}`}>
                   <a className="hover-flip-item-wrapper">
                     <span className="hover-flip-item">
-                      <span data-text={data.cate}>{titleFormat(data.cate)}</span>
+                      <span data-text={titleFormat(data.cate)}>{titleFormat(data.cate)}</span>
                     </span>
                   </a>
                 </Link>

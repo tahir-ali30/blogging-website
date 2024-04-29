@@ -7,7 +7,7 @@ const BreadcrumbOne = ({title, image, description}) => {
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="inner">
-                            <Image src={image} width={300} height={300} alt={title} />
+                            {image && <Image src={image} width={300} height={300} alt={title} />}
                             <h1 className="page-title">{title}</h1>
                             <p>{description}</p>
                         </div>
