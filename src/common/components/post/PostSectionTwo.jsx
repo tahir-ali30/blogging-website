@@ -6,30 +6,30 @@ import Nav from "react-bootstrap/Nav";
 import { SectionTitleOne } from "../../elements/sectionTitle/SectionTitle";
 import AddBanner from "../ad-banner/AddBanner";
 import Slider from "react-slick";
-import { slugify } from "../../utils";
+import { slugify, titleFormat } from "../../utils";
 
-const filters = [
+// const filters = [
  
-  {
-    id: 1,
-    cate: "Gadget",
-  },
-  {
-    id: 2,
-    cate: "Design",
-  },
-  {
-    id: 3,
-    cate: "Marketing",
-  },
-  {
-    id: 4,
-    cate: "Technology",
-  },
-];
-const defaultActiveCat = slugify(filters[0].cate);
+//   {
+//     id: 1,
+//     cate: "Gadget",
+//   },
+//   {
+//     id: 2,
+//     cate: "Design",
+//   },
+//   {
+//     id: 3,
+//     cate: "Marketing",
+//   },
+//   {
+//     id: 4,
+//     cate: "Technology",
+//   },
+// ];
 
-const PostSectionTwo = ({ postData, adBanner, headingTitle }) => {
+const PostSectionTwo = ({ postData, adBanner, headingTitle, filters }) => {
+  const defaultActiveCat = slugify(filters[0].name);
   const defaultData = postData.filter(
     (post) => slugify(post.cate) === defaultActiveCat
   );
@@ -129,12 +129,12 @@ const PostSectionTwo = ({ postData, adBanner, headingTitle }) => {
               <Tab.Container id="axilTab" defaultActiveKey={activeNav}>
                 <Nav className="axil-tab-button nav nav-tabs mt--20">
                   {filters.map((data) => (
-                    <Nav.Item key={data.id}>
+                    <Nav.Item key={data._id}>
                       <Nav.Link
                         onClick={handleChange}
-                        eventKey={slugify(data.cate)}
+                        eventKey={slugify(data.name)}
                       >
-                        {data.cate}
+                        {titleFormat(data.name)}
                       </Nav.Link>
                     </Nav.Item>
                   ))}
@@ -157,7 +157,7 @@ const PostSectionTwo = ({ postData, adBanner, headingTitle }) => {
                                   >
                                     <a className="hover-flip-item-wrapper">
                                       <span className="hover-flip-item">
-                                        <span data-text={data.cate}>
+                                        <span data-text={titleFormat(data.cate)}>
                                           {data.cate}
                                         </span>
                                       </span>

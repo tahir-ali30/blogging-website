@@ -6,30 +6,30 @@ import Nav from "react-bootstrap/Nav";
 import { SectionTitleOne } from "../../elements/sectionTitle/SectionTitle";
 import { slugify } from "../../utils";
 
-const filters = [
-  {
-    id: 1,
-    cate: "Travel",
-  },
-  {
-    id: 2,
-    cate: "Food",
-  },
-  {
-    id: 3,
-    cate: "Design",
-  },
-  {
-    id: 4,
-    cate: "LifeStyle",
-  },
-];
+// const filters = [
+//   {
+//     id: 1,
+//     name: "Travel",
+//   },
+//   {
+//     id: 2,
+//     cate: "Food",
+//   },
+//   {
+//     id: 3,
+//     cate: "Design",
+//   },
+//   {
+//     id: 4,
+//     cate: "LifeStyle",
+//   },
+// ];
 
-const defaultActiveCat = slugify(filters[0].cate);
 
-const PostSectionFive = ({ postData }) => {
+const PostSectionFive = ({ postData, filters }) => {
+  const defaultActiveCat = slugify(filters[0].name);
   const defaultData = postData.filter(
-    (post) => slugify(post.cate) === defaultActiveCat
+    (post) => slugify(post?.title) === defaultActiveCat
   );
 
   const [activeNav, setActiveNav] = useState(defaultActiveCat);
@@ -43,7 +43,7 @@ const PostSectionFive = ({ postData }) => {
 
     for (let i = 0; i < postData.length; i++) {
       const element = postData[i];
-      let categories = element["cate"];
+      let categories = element["name"];
 
       if (slugify(categories).includes(filterText)) {
         tempData.push(element);
@@ -64,12 +64,12 @@ const PostSectionFive = ({ postData }) => {
             <Tab.Container id="axilTab" defaultActiveKey={activeNav}>
               <Nav className="axil-tab-button nav nav-tabs mt--20">
                 {filters.map((data) => (
-                  <Nav.Item key={data.id}>
+                  <Nav.Item key={data._id}>
                     <Nav.Link
                       onClick={handleChange}
-                      eventKey={slugify(data.cate)}
+                      eventKey={slugify(data.name)}
                     >
-                      {data.cate}
+                      {data.name}
                     </Nav.Link>
                   </Nav.Item>
                 ))}
@@ -80,13 +80,13 @@ const PostSectionFive = ({ postData }) => {
                   <div className="row">
                     <div className="col-xl-7 col-lg-7 col-md-12 col-12">
                       <div className="active show content-block post-grid post-grid-large mt--30">
-                      {firstPost.featureImg ? 
+                      {firstPost?.featureImg ? 
                         <div className="post-thumbnail">
-                          <Link href={`/post/${firstPost.slug}`}>
+                          <Link href={`/post/${firstPost?.slug}`}>
                             <a>
                               <Image
                                 src={firstPost?.featureImg}
-                                alt={firstPost.title}
+                                alt={firstPost?.title}
                                 height={660}
                                 width={705}
                                 priority={true}
@@ -100,12 +100,12 @@ const PostSectionFive = ({ postData }) => {
                             <div className="post-cat">
                               <div className="post-cat-list">
                                 <Link
-                                  href={`/category/${slugify(firstPost.cate)}`}
+                                  href={`/category/${slugify(firstPost?.title)}`}
                                 >
                                   <a className="hover-flip-item-wrapper">
                                     <span className="hover-flip-item">
-                                      <span data-text={firstPost.cate}>
-                                        {firstPost.cate}
+                                      <span data-text={firstPost?.title}>
+                                        {firstPost?.title}
                                       </span>
                                     </span>
                                   </a>
@@ -113,8 +113,8 @@ const PostSectionFive = ({ postData }) => {
                               </div>
                             </div>
                             <h3 className="title">
-                              <Link href={`/post/${firstPost.slug}`}>
-                                <a>{firstPost.title}</a>
+                              <Link href={`/post/${firstPost?.slug}`}>
+                                <a>{firstPost?.title}</a>
                               </Link>
                             </h3>
                             <div className="post-meta-wrapper">
@@ -122,28 +122,28 @@ const PostSectionFive = ({ postData }) => {
                                 <div className="post-author-avatar border-rounded">
                                   <Image
                                     src={firstPost?.author_img}
-                                    alt={firstPost.author_name}
+                                    alt={firstPost?.author_name}
                                     height={50}
                                     width={50}
                                   />
                                 </div>
                                 <div className="content">
                                   <h6 className="post-author-name">
-                                    <Link href={`/author/${slugify(firstPost.author_name)}`}>
+                                    <Link href={`/author/${slugify(firstPost?.author_name)}`}>
                                       <a className="hover-flip-item-wrapper">
                                         <span className="hover-flip-item">
                                           <span
-                                            data-text={firstPost.author_name}
+                                            data-text={firstPost?.author_name}
                                           >
-                                            {firstPost.author_name}
+                                            {firstPost?.author_name}
                                           </span>
                                         </span>
                                       </a>
                                     </Link>
                                   </h6>
                                   <ul className="post-meta-list">
-                                    <li>{firstPost.date}</li>
-                                    <li>{firstPost.post_views}</li>
+                                    <li>{firstPost?.date}</li>
+                                    <li>{firstPost?.post_views}</li>
                                   </ul>
                                 </div>
                               </div>
@@ -184,12 +184,12 @@ const PostSectionFive = ({ postData }) => {
                                 <div className="post-cat">
                                   <div className="post-cat-list">
 								  <Link
-									href={`/category/${slugify(data.cate)}`}
+									href={`/category/${slugify(data.name)}`}
 									>
 									<a className="hover-flip-item-wrapper">
 										<span className="hover-flip-item">
-										<span data-text={data.cate}>
-											{data.cate}
+										<span data-text={data.name}>
+											{data.name}
 										</span>
 										</span>
 									</a>

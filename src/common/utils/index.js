@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { DateTime } from 'luxon'
 
-const slugify = function(text) {
+const slugify = function (text) {
+  if(!text) return
     return text
       .toString()
       .toLowerCase()

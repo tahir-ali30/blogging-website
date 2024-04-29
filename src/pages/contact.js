@@ -2,7 +2,7 @@ import InstagramOne from "../common/components/instagram/InstagramOne";
 import BreadcrumbTwo from "../common/elements/breadcrumb/breadcrumbTwo";
 import FooterThree from "../common/elements/footer/FooterThree";
 import HeaderOne from "../common/elements/header/HeaderOne";
-import { getAllPosts } from '../../lib/api';
+// import { getAllPosts } from '../../lib/api';
 import WidgetCategory from "../common/components/sidebar/WidgetCategory";
 import WidgetSearch from "../common/components/sidebar/WidgetSearch";
 import WidgetPostList from "../common/components/sidebar/WidgetPostList";
@@ -18,7 +18,7 @@ const ContactUs = ({allPosts}) => {
         <BreadcrumbTwo 
         title= "Contact Us" 
         paragraph="Wherever &amp; whenever you need us. We are here for you – contact us for all your support needs.<br /> be it technical, general queries or information support."
-        bgImae="url('images/bg/bg-image-3.webp')"
+        // bgImae="url('images/bg/bg-image-3.webp')"
         />
         <div className="axil-post-list-area axil-section-gap bg-color-white">
             <div className="container">
@@ -38,16 +38,16 @@ const ContactUs = ({allPosts}) => {
                     </div>
                     <div className="col-lg-4 col-xl-4 mt_md--40 mt_sm--40">
                         <div className="sidebar-inner">
-                            <WidgetCategory catData={allPosts} />
+                            {/* <WidgetCategory catData={allPosts} /> */}
                             <WidgetSearch />
-                            <WidgetPostList postData={allPosts} />
-                            <WidgetSocialShare />
+                            {/* <WidgetPostList postData={allPosts} /> */}
+                            {/* <WidgetSocialShare /> */}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <InstagramOne parentClass="bg-color-grey"/>
+        {/* <InstagramOne parentClass="bg-color-grey"/> */}
         {/* <FooterThree /> */}
         </>
      );
@@ -56,23 +56,23 @@ const ContactUs = ({allPosts}) => {
 export default ContactUs;
 
 
-export async function getStaticProps() {
-    const allPosts = getAllPosts([
-      'id',
-      'title',
-      'featureImg',
-      'featured',
-      'date',
-      'slug',
-      'cate',
-      'cate_img',
-      'author_img',
-      'author_name',
-      'post_views',
-    ])
+// export async function getStaticProps() {
+//     const allPosts = getAllPosts([
+//       'id',
+//       'title',
+//       'featureImg',
+//       'featured',
+//       'date',
+//       'slug',
+//       'cate',
+//       'cate_img',
+//       'author_img',
+//       'author_name',
+//       'post_views',
+//     ])
   
-    return {
-      props: { allPosts }
-    }
-  }
+//     return {
+//       props: { allPosts }
+//     }
+//   }
 

@@ -245,19 +245,25 @@ const Nav = ({ posts }) => {
 			</li> */}
 			<li>
 				<Link href='/about'>
-					<a className='hover-flip-item-wrapper'>
+					<a>
+							<span data-text='About Us'>About Us</span>
+					</a>
+					{/* <a className='hover-flip-item-wrapper'>
 						<span className='hover-flip-item'>
 							<span data-text='About Us'>About Us</span>
 						</span>
-					</a>
+					</a> */}
 				</Link>
 			</li>
 			<li>
 				<Link href='/contact'>
-					<a className='hover-flip-item-wrapper'>
+					{/* <a className='hover-flip-item-wrapper'>
 						<span className='hover-flip-item'>
 							<span data-text='Contact Us'>Contact Us</span>
 						</span>
+					</a> */}
+					<a>
+							<span data-text='Contact Us'>Contact Us</span>
 					</a>
 				</Link>
 			</li>

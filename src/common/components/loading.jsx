@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import Router from "next/router";
 import { toast } from "react-toastify";
-import dynamic from "next/dynamic";
+import nprogress from "nprogress";
 
 function LoadingWidget () {
 //   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const handleRouteChangeStart = () => toast.loading('Loading');
-    const handleRouteChangeComplete = () => toast.dismiss();
+    const handleRouteChangeStart = () => nprogress.start();
+    const handleRouteChangeComplete = () => nprogress.done();
 
     Router.events.on("routeChangeStart", handleRouteChangeStart);
     Router.events.on("routeChangeComplete", handleRouteChangeComplete);

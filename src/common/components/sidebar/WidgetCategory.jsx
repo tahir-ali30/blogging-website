@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { removeDuplicates, slugify } from "../../utils";
+import { removeDuplicates, slugify, titleFormat } from "../../utils";
 
 const WidgetCategory = ({ catData }) => {
 
@@ -23,7 +23,7 @@ const WidgetCategory = ({ catData }) => {
                   />
                 </div>
                 <div className="content">
-                  <h5 className="title">{data.cate}</h5>
+                  <h5 className="title">{titleFormat(data.cate)}</h5>
                 </div>
               </a>
             </Link>

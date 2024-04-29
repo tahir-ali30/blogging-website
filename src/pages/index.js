@@ -15,20 +15,20 @@ import SliderOne from '../common/components/slider/SliderOne';
 import axios from 'axios';
 
 
-const HomeDefault = ({allPosts}) => {
+const HomeDefault = ({ allPosts, categories }) => {
   // const videoPost = allPosts.filter(post => post.postFormat === "video");
- 
+  console.log(categories)
   return ( 
     <>
       <HeadTitle pageTitle="Home Default" />
       {/* <HeaderOne postData={allPosts}/> */}
       <SliderOne postData={allPosts} />
       <PostSectionOne postData={allPosts}/>
-      <PostSectionTwo postData={allPosts} adBanner={true} />
+      <PostSectionTwo postData={allPosts} adBanner={false} filters={categories} />
       <CategoryList cateData={allPosts}/>
-      <PostSectionSix postData={allPosts} />
+      <PostSectionSix postData={allPosts} filters={categories} />
       <SocialOne />
-      <PostSectionFive postData={allPosts}/>
+      {/* <PostSectionFive postData={allPosts} filters={categories}/> */}
       <PostSectionFour postData={allPosts} adBanner={true} />
       {/* <PostSectionThree postData={videoPost} heading="Featured Video"/> */}
       {/* <InstagramOne parentClass="bg-color-grey"/> */}
@@ -67,8 +67,9 @@ export default HomeDefault;
 
 export async function getStaticProps() {
   const { data: allPosts } = (await axios.get('http://localhost:3005/api/v1/blogs?status=Published')).data;
-
+  const { data: categories } = (await axios.get('http://localhost:3005/api/v1/category')).data;
+  console.log(categories)
   return {
-    props: { allPosts }
+    props: { allPosts, categories }
   }
 }

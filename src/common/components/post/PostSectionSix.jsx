@@ -4,31 +4,31 @@ import Image from "next/image";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import { SectionTitleOne } from "../../elements/sectionTitle/SectionTitle";
-import { HoverActiveClass, slugify } from "../../utils";
+import { HoverActiveClass, slugify, titleFormat } from "../../utils";
 
-const filters = [
-  {
-    id: 1,
-    cate: "Travel",
-  },
-  {
-    id: 2,
-    cate: "Gadget",
-  },
-  {
-    id: 3,
-    cate: "SEO",
-  },
-  {
-    id: 4,
-    cate: "Research",
-  },
-];
+// const filters = [
+//   {
+//     id: 1,
+//     cate: "Travel",
+//   },
+//   {
+//     id: 2,
+//     cate: "Gadget",
+//   },
+//   {
+//     id: 3,
+//     cate: "SEO",
+//   },
+//   {
+//     id: 4,
+//     cate: "Research",
+//   },
+// ];
 
-const defaultActiveCat = slugify(filters[0].cate);
 
-const PostSectionSix = ({ postData }) => {
-  const defaultData = postData.filter(
+const PostSectionSix = ({ postData, filters }) => {
+	const defaultActiveCat = slugify(filters[0].name);
+	const defaultData = postData.filter(
     (post) => slugify(post.cate) === defaultActiveCat
   );
 
@@ -65,12 +65,12 @@ const PostSectionSix = ({ postData }) => {
             <Tab.Container id="axilTab" defaultActiveKey={activeNav}>
               <Nav className="axil-tab-button nav nav-tabs mt--20">
                 {filters.map((data) => (
-                  <Nav.Item key={data.id}>
+                  <Nav.Item key={data._id}>
                     <Nav.Link
                       onClick={handleChange}
-                      eventKey={slugify(data.cate)}
+                      eventKey={slugify(data.name)}
                     >
-                      {data.cate}
+                      {titleFormat(data.name)}
                     </Nav.Link>
                   </Nav.Item>
                 ))}

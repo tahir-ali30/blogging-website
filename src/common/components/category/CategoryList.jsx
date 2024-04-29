@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { SectionTitleTwo } from "../../elements/sectionTitle/SectionTitle";
-import {removeDuplicates, slugify} from '../../utils';
+import {removeDuplicates, slugify, titleFormat} from '../../utils';
 
 const CategoryList = ({cateData}) => {
 
@@ -32,7 +32,7 @@ const CategoryList = ({cateData}) => {
                     />
                     </div>
                     <div className="content">
-                      <h5 className="title">{data.cate}</h5>
+                      <h5 className="title">{titleFormat(data.cate)}</h5>
                     </div>
                   </a>
                   </Link>
